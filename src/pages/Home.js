@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import '../index.css'; // assuming your custom styles or tailwind are here
+import '../index.css';
 import img1 from '../assets/pexels-huseyn-kamaladdin-667838.jpg';
 import img2 from '../assets/5206.jpg';
 import img3 from '../assets/pexels-max-vakhtbovycn-7750123.jpg';
