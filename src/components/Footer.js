@@ -188,7 +188,8 @@ export default function Footer() {
               </a>
             </div>
             <p className="mt-4 text-gray-400 text-sm">
-              Sevysis – Healthier Tomorrow, Smarter Today. Providing innovative solutions in healthcare, education, HRMS, and more.
+              Sevysis – Healthier Tomorrow, Smarter Today. Providing innovative
+              solutions in healthcare, education, HRMS, and more.
             </p>
           </div>
         </div>
@@ -204,8 +205,9 @@ export default function Footer() {
           <div className="bg-white text-black rounded-lg max-w-2xl w-full p-6 relative overflow-y-auto max-h-[90vh] shadow-lg">
             <h2 className="text-2xl font-bold mb-4">Privacy Policy</h2>
             <p className="text-sm mb-4 leading-relaxed">
-              Your privacy is important to us. This privacy statement provides information about the personal information that Sevysis
-              collects, and the ways in which Sevysis uses that personal information.
+              Your privacy is important to us. This privacy statement provides
+              information about the personal information that Sevysis collects,
+              and the ways in which Sevysis uses that personal information.
             </p>
             <button
               onClick={() => setShowPrivacyModal(false)}
@@ -224,8 +226,10 @@ export default function Footer() {
           <div className="bg-white text-black rounded-lg max-w-2xl w-full p-6 relative overflow-y-auto max-h-[90vh] shadow-lg">
             <h2 className="text-2xl font-bold mb-4">Disclaimer</h2>
             <p className="text-sm mb-4 leading-relaxed">
-              All information on this website is published in good faith and for general information purposes only. Sevysis does not make any
-              warranties about the completeness, reliability, and accuracy of this information.
+              All information on this website is published in good faith and for
+              general information purposes only. Sevysis does not make any
+              warranties about the completeness, reliability, and accuracy of
+              this information.
             </p>
             <button
               onClick={() => setShowDisclaimerModal(false)}

@@ -13,38 +13,44 @@ const slides = [
     image: development1,
     description: (
       <>
-        Sevysis's methodology is comprehensive, integrating, top-notch technologies for application, website
-        and web portal development with solid strength...
+        Sevysis's methodology is comprehensive, integrating, top-notch
+        technologies for application, website and web portal development with
+        solid strength...
       </>
     ),
-    focusedOn: ["Quality Requirement gathering", "Agile Development", "Bug free Delivery"],
+    focusedOn: [
+      "Quality Requirement gathering",
+      "Agile Development",
+      "Bug free Delivery",
+    ],
   },
   {
     heading: "Mobile App Design & Development",
     image: development2,
     description: (
       <>
-        Sevysis uses top-notch technologies for mobile apps. Collaboration during the design process is crucial...
+        Sevysis uses top-notch technologies for mobile apps. Collaboration
+        during the design process is crucial...
       </>
     ),
-    focusedOn: ["Quality Requirement gathering", "Agile Development", "Bug free Delivery"],
+    focusedOn: [
+      "Quality Requirement gathering",
+      "Agile Development",
+      "Bug free Delivery",
+    ],
   },
   {
     heading: "Custom Design Development",
     image: development3,
     description: (
-      <>
-        Sevysis helps startups create custom mobile/web-based apps...
-      </>
+      <>Sevysis helps startups create custom mobile/web-based apps...</>
     ),
   },
   {
     heading: "Redesign and Development",
     image: development4,
     description: (
-      <>
-        Enhancing existing products through redesign and collaboration...
-      </>
+      <>Enhancing existing products through redesign and collaboration...</>
     ),
   },
 ];
@@ -70,10 +76,18 @@ const DesignDevelopment = () => {
   return (
     <div className={styles["slider-container"]}>
       {/* Controls */}
-      <button className={styles["slider-control-left"]} onClick={prevSlide} aria-label="Previous">
+      <button
+        className={styles["slider-control-left"]}
+        onClick={prevSlide}
+        aria-label="Previous"
+      >
         ‹
       </button>
-      <button className={styles["slider-control-right"]} onClick={nextSlide} aria-label="Next">
+      <button
+        className={styles["slider-control-right"]}
+        onClick={nextSlide}
+        aria-label="Next"
+      >
         ›
       </button>
 
@@ -82,9 +96,15 @@ const DesignDevelopment = () => {
         {slides.map((slide, i) => (
           <div
             key={i}
-            className={`${styles.slide} ${i === activeIndex ? styles.active : ""}`}
+            className={`${styles.slide} ${
+              i === activeIndex ? styles.active : ""
+            }`}
           >
-            <img src={slide.image} alt={slide.heading} className={styles.image} />
+            <img
+              src={slide.image}
+              alt={slide.heading}
+              className={styles.image}
+            />
             <div className={styles.content}>
               <h2>{slide.heading}</h2>
               <p>{slide.description}</p>
@@ -105,7 +125,9 @@ const DesignDevelopment = () => {
         {slides.map((_, i) => (
           <span
             key={i}
-            className={`${styles.dot} ${i === activeIndex ? styles.activeDot : ""}`}
+            className={`${styles.dot} ${
+              i === activeIndex ? styles.activeDot : ""
+            }`}
             onClick={() => setActiveIndex(i)}
           ></span>
         ))}

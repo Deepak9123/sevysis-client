@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  BsCheckCircleFill,
-  BsStarFill,
-  BsLightbulbFill,
-} from "react-icons/bs";
+import { BsCheckCircleFill, BsStarFill, BsLightbulbFill } from "react-icons/bs";
 
 const HrmsSolution = () => {
   return (
@@ -12,13 +8,13 @@ const HrmsSolution = () => {
         <h1 className="text-3xl font-bold text-center mb-6">HRMS Solutions</h1>
         <p className="mb-6 text-justify">
           HRMS (Human Resource Management System) software is a comprehensive
-          web-based tool designed to streamline and automate various HR processes
-          within all scales of organizations. HRMS software serves as a centralized
-          database for storing employee information, including personal details, contact
-          information, job history, performance reviews, and salary details.
-          HRMS software aims to enhance HR processes, improve employee
-          engagement, and optimize workforce management for organizations of all
-          sizes.
+          web-based tool designed to streamline and automate various HR
+          processes within all scales of organizations. HRMS software serves as
+          a centralized database for storing employee information, including
+          personal details, contact information, job history, performance
+          reviews, and salary details. HRMS software aims to enhance HR
+          processes, improve employee engagement, and optimize workforce
+          management for organizations of all sizes.
         </p>
 
         <h2 className="text-2xl font-semibold mb-4">Key Features:</h2>

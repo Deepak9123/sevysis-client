@@ -6,15 +6,23 @@ const HealthcarePathlab = () => {
       {/* SECTION 1 */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
-          <h2 className="text-2xl font-bold mb-4 text-blue-700">Electronic healthcare record solution</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-700">
+            Electronic healthcare record solution
+          </h2>
           <p className="text-gray-700">
-            An Electronic Health Records (EHR) solution is a digital system designed to systematically collect, store,
-            manage, and exchange patient health information. It offers a wide range of functionalities to support
-            healthcare providers in delivering high-quality care, optimizing clinical workflows, and improving patient outcomes.
-            <br /><br />
-            The EHR system stores and manages basic patient information, including name, date of birth, gender, contact details,
-            and insurance information. It captures and maintains comprehensive medical histories including past illnesses,
-            medications, immunizations, and surgeries.
+            An Electronic Health Records (EHR) solution is a digital system
+            designed to systematically collect, store, manage, and exchange
+            patient health information. It offers a wide range of
+            functionalities to support healthcare providers in delivering
+            high-quality care, optimizing clinical workflows, and improving
+            patient outcomes.
+            <br />
+            <br />
+            The EHR system stores and manages basic patient information,
+            including name, date of birth, gender, contact details, and
+            insurance information. It captures and maintains comprehensive
+            medical histories including past illnesses, medications,
+            immunizations, and surgeries.
           </p>
         </div>
         <figure className="flex-1">
@@ -29,10 +37,14 @@ const HealthcarePathlab = () => {
       {/* SECTION 2 */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
-          <h2 className="text-2xl font-bold mb-4 text-blue-700">Website Design & Development</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-700">
+            Website Design & Development
+          </h2>
           <p className="text-gray-700 mb-2">
-            Sevysis's methodology is comprehensive, integrating top-notch technologies for website and web portal development.
-            We focus on building visually engaging, user-friendly, and fully responsive websites.
+            Sevysis's methodology is comprehensive, integrating top-notch
+            technologies for website and web portal development. We focus on
+            building visually engaging, user-friendly, and fully responsive
+            websites.
           </p>
           <h3 className="font-semibold mt-4 mb-2">Sevysis focuses on:</h3>
           <ul className="list-disc list-inside space-y-1 text-gray-700">
@@ -53,10 +65,13 @@ const HealthcarePathlab = () => {
       {/* SECTION 3 */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
-          <h2 className="text-2xl font-bold mb-4 text-blue-700">Mobile App Design & Development</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-700">
+            Mobile App Design & Development
+          </h2>
           <p className="text-gray-700 mb-2">
-            Sevysis's methodology integrates top-tier technologies for mobile application design and development.
-            Our goal is to deliver seamless user experiences through intuitive interfaces and powerful features.
+            Sevysis's methodology integrates top-tier technologies for mobile
+            application design and development. Our goal is to deliver seamless
+            user experiences through intuitive interfaces and powerful features.
           </p>
           <h3 className="font-semibold mt-4 mb-2">Sevysis focuses on:</h3>
           <ul className="list-disc list-inside space-y-1 text-gray-700">
@@ -77,10 +92,14 @@ const HealthcarePathlab = () => {
       {/* SECTION 4 */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
-          <h2 className="text-2xl font-bold mb-4 text-blue-700">Custom Design Development</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-700">
+            Custom Design Development
+          </h2>
           <p className="text-gray-700">
-            Sevysis helps individuals, startups, and companies create custom mobile and web-based apps tailored to specific use cases.
-            Custom development focuses on the client's unique requirements and business goals, ensuring a personalized and effective solution.
+            Sevysis helps individuals, startups, and companies create custom
+            mobile and web-based apps tailored to specific use cases. Custom
+            development focuses on the client's unique requirements and business
+            goals, ensuring a personalized and effective solution.
           </p>
         </div>
         <figure className="flex-1">
@@ -95,11 +114,15 @@ const HealthcarePathlab = () => {
       {/* SECTION 5 */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
-          <h2 className="text-2xl font-bold mb-4 text-blue-700">Redesign and Development</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-700">
+            Redesign and Development
+          </h2>
           <p className="text-gray-700">
-            Redesign and development involve improving and modernizing existing systems or services for better functionality,
-            usability, and aesthetics. It includes research, planning, design, implementation, testing, and deployment.
-            Strong collaboration among cross-functional teams is crucial throughout the process.
+            Redesign and development involve improving and modernizing existing
+            systems or services for better functionality, usability, and
+            aesthetics. It includes research, planning, design, implementation,
+            testing, and deployment. Strong collaboration among cross-functional
+            teams is crucial throughout the process.
           </p>
         </div>
         <figure className="flex-1">
