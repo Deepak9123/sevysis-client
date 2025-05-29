@@ -7,15 +7,16 @@ const FindUs = () => {
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto text-center px-4">
           <h3 className="text-3xl font-bold mb-2">Get In Touch</h3>
-          <ul className="flex justify-center space-x-2 text-blue-600">
-            <li>
-              <a href="/">Sevysis</a>
-            </li>
-            <li>/</li>
-            <li>
-              <a href="/find-us">Get in touch</a>
-            </li>
-          </ul>
+          <ul className="flex justify-center space-x-2 text-blue-600 list-none">
+          <li>
+            <a href="/">Sevysis</a>
+          </li>
+          <li className="text-gray-500 select-none">/</li>
+          <li>
+            <a href="/find-us">Get in touch</a>
+          </li>
+        </ul>
+
         </div>
       </section>
 

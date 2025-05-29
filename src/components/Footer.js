@@ -187,6 +187,9 @@ export default function Footer() {
                 <FaYoutube />
               </a>
             </div>
+            <p className="mt-4 text-gray-400 text-sm">
+              Sevysis – Healthier Tomorrow, Smarter Today. Providing innovative solutions in healthcare, education, HRMS, and more.
+            </p>
           </div>
         </div>
 

@@ -28,10 +28,26 @@ const Header = ({ onEnquiryClick }) => {
     <header className="sticky top-0 z-50 bg-white shadow-md p-4">
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
-          <img src={logo} alt="Sevysis Logo" className="h-8 w-8 mr-2" />
-          <span className="text-xl font-bold text-gray-800">Sevysis</span>
-        </div>
+       <div
+  className="flex flex-col md:flex-row md:items-center md:space-x-2 cursor-pointer"
+  onClick={() => navigate("/")}
+>
+  <div className="flex items-center">
+    <img src={logo} alt="Sevysis Logo" className="h-8 w-8 mr-2" />
+    <span className="text-xl font-bold text-gray-800">Sevysis</span>
+  </div>
+  <div className="overflow-hidden w-48 md:w-64">
+  <div className="whitespace-nowrap animate-slide">
+    <span className="text-xs md:text-sm text-blue-600 font-semibold animate-blinkFade">
+  🌟 Healthier Tomorrow, Smarter Today 🌟
+</span>
+
+  </div>
+</div>
+
+</div>
+
+
 
         {/* Mobile Menu Toggle */}
         <button onClick={toggleMobileMenu} className="md:hidden">
@@ -72,25 +88,25 @@ const Header = ({ onEnquiryClick }) => {
               </svg>
             </button>
             {servicesOpen && (
- <ul className="absolute right-0 mt-2 w-64 bg-white border border-gray-200 shadow-lg rounded-lg z-20 py-2 list-none">
-  {[
-    { to: "/services/education-management", label: "🎓 Education Management" },
-    { to: "/services/hospital-pathlab", label: "🏥 Hospital & Pathlab Solution" },
-    { to: "/services/design-development", label: "💻 Design & Development" },
-    { to: "/services/hrms-solution", label: "🧑‍💼 HRMS Solution" }
-  ].map(({ to, label }) => (
-    <li key={to} className="w-full">
-      <Link
-        to={to}
-        onClick={() => setServicesOpen(false)}
-        className="block w-full px-5 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150 cursor-pointer"
-      >
-        {label}
-      </Link>
-    </li>
-  ))}
-</ul>
-)}
+            <ul className="absolute right-0 mt-2 w-64 bg-white border border-gray-200 shadow-lg rounded-lg z-20 py-2 list-none">
+              {[
+                { to: "/services/education-management", label: "🎓 Education Management" },
+                { to: "/services/hospital-pathlab", label: "🏥 Hospital & Pathlab Solution" },
+                { to: "/services/design-development", label: "💻 Design & Development" },
+                { to: "/services/hrms-solution", label: "🧑‍💼 HRMS Solution" }
+              ].map(({ to, label }) => (
+                <li key={to} className="w-full">
+                  <Link
+                    to={to}
+                    onClick={() => setServicesOpen(false)}
+                    className="block w-full px-5 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150 cursor-pointer"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            )}
           </div>
 
           <Link to="/find-us" className="hover:text-blue-600 font-medium">Find Us</Link>
