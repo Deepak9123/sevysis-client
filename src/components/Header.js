@@ -25,24 +25,22 @@ const Header = ({ onEnquiryClick }) => {
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 shadow-md p-4">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 shadow-md p-4 md:p-4 py-2 md:py-4">
       <div className="flex items-center justify-between">
-        {/* Logo and Tagline */}
         <div
-          className="flex flex-col md:flex-row md:items-center cursor-pointer group"
+          className="flex items-center cursor-pointer group"
           onClick={() => navigate("/")}
         >
+          {/* Logo and Company Name */}
           <div className="flex items-center space-x-2">
             <img src={logo} alt="Sevysis Logo" className="h-10 w-10" />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-cyan-100 tracking-wide underline decoration-white/50 underline-offset-4 group-hover:text-white transition-colors duration-200">
-                Sevysis
-              </span>
-            </div>
+            <span className="text-xl font-bold text-cyan-100 tracking-wide underline decoration-white/50 underline-offset-4 group-hover:text-white transition-colors duration-200">
+              Sevysis
+            </span>
           </div>
 
-          {/* Tagline: Slideshow effect */}
-          <div className="overflow-hidden w-56 md:w-64 mt-1 md:mt-0 md:ml-4">
+          {/* Marquee tagline with left margin and smaller top margin on mobile */}
+          <div className="overflow-hidden max-w-[150px] md:max-w-[256px] ml-4 mt-0 md:mt-1">
             <div className="whitespace-nowrap animate-marquee">
               <span className="text-xs md:text-sm text-blue-500 font-semibold tracking-wide">
                 🌟 Healthier Tomorrow, Smarter Today 🌟
@@ -75,42 +73,43 @@ const Header = ({ onEnquiryClick }) => {
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-6 items-center relative">
           <Link
-  to="/"
-  onClick={() => setServicesOpen(false)}
-  className="text-white hover:bg-cyan-700 hover:text-white px-3 py-2 text-sm font-medium rounded transition duration-150"
->
-  Home
-</Link>
+            to="/"
+            onClick={() => setServicesOpen(false)}
+            className="text-white hover:bg-cyan-700 hover:text-white px-3 py-2 text-sm font-medium rounded transition duration-150"
+          >
+            Home
+          </Link>
 
-<Link
-  to="/about"
-  className="text-white hover:bg-cyan-700 hover:text-white px-3 py-2 text-sm font-medium rounded transition duration-150"
->
-  About
-</Link>
+          <Link
+            to="/about"
+            onClick={() => setServicesOpen(false)}
+            className="text-white hover:bg-cyan-700 hover:text-white px-3 py-2 text-sm font-medium rounded transition duration-150"
+          >
+            About
+          </Link>
 
-<div className="relative group" ref={dropdownRef}>
-  <button
-    onClick={toggleServices}
-    className="text-white hover:bg-cyan-700 hover:text-white font-medium flex items-center gap-1 px-3 py-2 rounded transition duration-150"
-  >
-    Services
-    <svg
-      className={`ml-1 w-3 h-3 transition-transform duration-200 ${
-        servicesOpen ? "rotate-180" : "rotate-0"
-      }`}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19 9l-7 7-7-7"
-      />
-    </svg>
-  </button>
+          <div className="relative group" ref={dropdownRef}>
+            <button
+              onClick={toggleServices}
+              className="text-white hover:bg-cyan-700 hover:text-white font-medium flex items-center gap-1 px-3 py-2 rounded transition duration-150"
+            >
+              Services
+              <svg
+                className={`ml-1 w-3 h-3 transition-transform duration-200 ${
+                  servicesOpen ? "rotate-180" : "rotate-0"
+                }`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
 
             {/* Dropdown Menu */}
             <div
@@ -148,18 +147,22 @@ const Header = ({ onEnquiryClick }) => {
           </div>
 
           <Link
-  to="/find-us"
-  className="text-white hover:bg-cyan-700 hover:text-white px-3 py-2 text-sm font-medium rounded transition duration-150"
->
-  Find Us
-</Link>
+            to="/find-us"
+            onClick={() => setServicesOpen(false)}
+            className="text-white hover:bg-cyan-700 hover:text-white px-3 py-2 text-sm font-medium rounded transition duration-150"
+          >
+            Find Us
+          </Link>
 
-<button
-  onClick={onEnquiryClick}
-  className="text-white hover:bg-cyan-700 hover:text-white px-3 py-2 text-sm font-medium rounded transition duration-150"
->
-  Enquiry
-</button>
+          <button
+            onClick={() => {
+              setServicesOpen(false);
+              onEnquiryClick();
+            }}
+            className="text-white hover:bg-cyan-700 hover:text-white px-3 py-2 text-sm font-medium rounded transition duration-150"
+          >
+            Enquiry
+          </button>
         </nav>
       </div>
 
