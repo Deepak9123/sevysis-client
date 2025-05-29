@@ -55,9 +55,10 @@ const EnquiryModal = ({ onClose }) => {
 
   return (
     <>
-      <div className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="bg-white rounded-lg w-full max-w-xs sm:max-w-sm p-4 sm:p-6 shadow-lg relative z-50">
-          <div className="flex justify-between items-center mb-4">
+      <div className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50 px-4">
+        <div className="bg-white rounded-lg w-full max-w-xs sm:max-w-sm shadow-lg relative z-50 max-h-[80vh] flex flex-col">
+          {/* Sticky header */}
+          <div className="flex justify-between items-center p-4 border-b border-gray-200 sticky top-0 bg-white z-10">
             <h2 className="text-xl font-semibold">Enquiry Form</h2>
             <button
               onClick={onClose}
@@ -66,7 +67,14 @@ const EnquiryModal = ({ onClose }) => {
               &times;
             </button>
           </div>
-          <form onSubmit={handleSubmit} className="space-y-4">
+
+          {/* Scrollable form */}
+          <form
+            onSubmit={handleSubmit}
+            className="p-4 space-y-4 overflow-y-auto"
+            style={{ flexGrow: 1, minHeight: 0 }}
+          >
+            {/* <form onSubmit={handleSubmit} className="space-y-4"> */}
             {["name", "email", "phone", "subject"].map((field) => (
               <div key={field}>
                 <label
