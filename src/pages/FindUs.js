@@ -41,8 +41,8 @@ const FindUs = () => {
             {/* Contact Us */}
             <div className="bg-white p-6 shadow-lg rounded-md">
               <h2 className="text-xl font-bold bg-gray-800 text-white p-2 mb-4">Contact us today</h2>
-              <h4 className="text-lg text-blue-600">Phone: 9307317516</h4>
-              <h5 className="text-blue-600 mb-2">Mob.no: 9123163568</h5>
+              <h4 className="text-lg text-blue-600">Phone: +91 93073 17516</h4>
+              <h5 className="text-blue-600 mb-2">Mob.no: +91 78877 11309</h5>
               <a
                 href="mailto:hr@sevysis.com"
                 className="inline-block bg-blue-500 text-white px-4 py-2 rounded mt-2"

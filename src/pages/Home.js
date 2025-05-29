@@ -29,35 +29,58 @@ function Home() {
   }, []);
 
   return (
-    <div className="space-y-10">
+    <div>
 
       {/* Hero Carousel */}
-      <section className="carousal max-w-5xl mx-auto">
-        <Carousel autoPlay infiniteLoop showThumbs={false} interval={3800} showStatus={false}>
-          <div className="relative">
-            <img src={img1} alt="Slide 1" className="mx-auto h-80 object-cover rounded-lg" />
-            <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-80 px-4 py-2 text-center text-black font-bold rounded">
-              Our primary areas of competence are business intelligence, technology, and developing web and mobile applications.
-            </p>
-          </div>
-          <div className="relative">
-            <img src={img2} alt="Slide 2" className="mx-auto h-80 object-cover rounded-lg" />
-            <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-80 px-4 py-2 text-center text-black font-bold rounded">
-              Our expertise is in providing services for mobile app development, CMS, and web development, among other things.
-            </p>
-          </div>
-          <div className="relative">
-            <img src={img3} alt="Slide 3" className="mx-auto h-80 object-cover rounded-lg" />
-            <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-80 px-4 py-2 text-center text-black font-bold rounded">
-              We believe innovation and collective knowledge can transform all our futures with greater purpose.
-            </p>
-          </div>
+      <section className="relative w-full h-[60vh] md:h-screen mb-0">
+        <Carousel
+          autoPlay
+          infiniteLoop
+          showThumbs={false}
+          interval={3800}
+          showStatus={false}
+          showArrows={true}
+          renderArrowPrev={(onClickHandler, hasPrev, label) =>
+            hasPrev && (
+              <button
+                type="button"
+                onClick={onClickHandler}
+                title={label}
+                className="absolute top-1/2 left-4 z-30 p-3 bg-white bg-opacity-50 rounded-full hover:bg-opacity-80 transition transform -translate-y-1/2"
+              >
+                ‹
+              </button>
+            )
+          }
+          renderArrowNext={(onClickHandler, hasNext, label) =>
+            hasNext && (
+              <button
+                type="button"
+                onClick={onClickHandler}
+                title={label}
+                className="absolute top-1/2 right-4 z-30 p-3 bg-white bg-opacity-50 rounded-full hover:bg-opacity-80 transition transform -translate-y-1/2"
+              >
+                ›
+              </button>
+            )
+          }
+        >
+          {[img1, img2, img3].map((img, idx) => (
+            <div key={idx} className="relative h-[50vh] md:h-screen">
+              <img src={img} alt={`Slide ${idx + 1}`} className="w-full h-full object-cover" />
+              <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-80 px-4 py-2 text-center text-black font-bold rounded w-[90%] md:w-[70%]">
+                {idx === 0 && "Our primary areas of competence are business intelligence, technology, and developing web and mobile applications."}
+                {idx === 1 && "Our expertise is in providing services for mobile app development, CMS, and web development, among other things."}
+                {idx === 2 && "We believe innovation and collective knowledge can transform all our futures with greater purpose."}
+              </p>
+            </div>
+          ))}
         </Carousel>
       </section>
 
       {/* About Section */}
-      <section className="text-center px-4 md:px-20 py-10 bg-gray-50">
-        <h1 className="text-3xl font-bold mb-4">ABOUT</h1>
+      <section className="text-center px-4 md:px-20 py-10 bg-gray-50 mt-0">
+        <h1 className="text-3xl font-bold mb-4">ABOUT US</h1>
         <p className="mb-4">
           Sevysis is an IT services, consulting, and business solutions organization that has been partnering with many businesses...
         </p>
@@ -65,12 +88,12 @@ function Home() {
           Our expertise spans a variety of fields including education, ATS, food, and healthcare...
         </p>
         <Link to="/about">
-        <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Explore Our Services</button>
+          <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Explore Our Services</button>
         </Link>
       </section>
 
       {/* Vision / Mission / Goals */}
-      <section className="px-4 md:px-20">
+      <section className="px-4 md:px-20 py-10">
         <h1 className="text-3xl font-bold text-center mb-6">Vision & Mission</h1>
         <div className="grid md:grid-cols-3 gap-6">
           {[
