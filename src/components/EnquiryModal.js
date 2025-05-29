@@ -55,8 +55,8 @@ const EnquiryModal = ({ onClose }) => {
 
   return (
     <>
-      <div className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50 px-4">
-        <div className="bg-white rounded-lg w-full max-w-xs sm:max-w-sm shadow-lg relative z-50 max-h-[80vh] flex flex-col">
+      <div className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50 px-6">
+        <div className="bg-white rounded-lg w-full max-w-md sm:max-w-lg shadow-lg relative z-50 max-h-[90vh] flex flex-col">
           {/* Sticky header */}
           <div className="flex justify-between items-center p-4 border-b border-gray-200 sticky top-0 bg-white z-10">
             <h2 className="text-xl font-semibold">Enquiry Form</h2>
@@ -71,10 +71,9 @@ const EnquiryModal = ({ onClose }) => {
           {/* Scrollable form */}
           <form
             onSubmit={handleSubmit}
-            className="p-4 space-y-4 overflow-y-auto"
+            className="p-6 space-y-4 overflow-y-auto"
             style={{ flexGrow: 1, minHeight: 0 }}
           >
-            {/* <form onSubmit={handleSubmit} className="space-y-4"> */}
             {["name", "email", "phone", "subject"].map((field) => (
               <div key={field}>
                 <label
