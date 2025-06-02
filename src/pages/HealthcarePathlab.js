@@ -7,22 +7,12 @@ const HealthcarePathlab = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
           <h2 className="text-2xl font-bold mb-4 text-blue-700">
-            Electronic healthcare record solution
+            Electronic Healthcare Record Solution
           </h2>
           <p className="text-gray-700">
-            An Electronic Health Records (EHR) solution is a digital system
-            designed to systematically collect, store, manage, and exchange
-            patient health information. It offers a wide range of
-            functionalities to support healthcare providers in delivering
-            high-quality care, optimizing clinical workflows, and improving
-            patient outcomes.
-            <br />
-            <br />
-            The EHR system stores and manages basic patient information,
-            including name, date of birth, gender, contact details, and
-            insurance information. It captures and maintains comprehensive
-            medical histories including past illnesses, medications,
-            immunizations, and surgeries.
+            An Electronic Health Records (EHR) system enables healthcare providers to securely manage patient information, streamline clinical workflows, and enhance patient outcomes. 
+            <br /><br />
+            The system stores patient demographics, visit histories, prescriptions, immunizations, allergies, and lab results. It facilitates smoother communication between departments and offers data-driven insights for better diagnosis and treatment planning.
           </p>
         </div>
         <figure className="flex-1">
@@ -38,25 +28,22 @@ const HealthcarePathlab = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
           <h2 className="text-2xl font-bold mb-4 text-blue-700">
-            Website Design & Development
+            Patient & Doctor Portal Development
           </h2>
           <p className="text-gray-700 mb-2">
-            Sevysis's methodology is comprehensive, integrating top-notch
-            technologies for website and web portal development. We focus on
-            building visually engaging, user-friendly, and fully responsive
-            websites.
+            We design and develop intuitive patient and doctor portals that facilitate appointment scheduling, real-time consultation, report tracking, and e-prescriptions. These portals bridge the communication gap between doctors and patients while maintaining privacy and compliance.
           </p>
-          <h3 className="font-semibold mt-4 mb-2">Sevysis focuses on:</h3>
+          <h3 className="font-semibold mt-4 mb-2">Key Features:</h3>
           <ul className="list-disc list-inside space-y-1 text-gray-700">
-            <li>Quality requirement gathering</li>
-            <li>Agile development and implementation</li>
-            <li>Bug-free delivery</li>
+            <li>Secure login for doctors and patients</li>
+            <li>Online appointment booking and reminders</li>
+            <li>Health history and prescription tracking</li>
           </ul>
         </div>
         <figure className="flex-1">
           <img
             src="https://images.unsplash.com/photo-1543333995-a78aea2eee50?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
-            alt="Website design"
+            alt="Patient portal design"
             className="rounded shadow-lg w-full max-w-md mx-auto"
           />
         </figure>
@@ -66,24 +53,22 @@ const HealthcarePathlab = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
           <h2 className="text-2xl font-bold mb-4 text-blue-700">
-            Mobile App Design & Development
+            Healthcare Mobile App Solutions
           </h2>
           <p className="text-gray-700 mb-2">
-            Sevysis's methodology integrates top-tier technologies for mobile
-            application design and development. Our goal is to deliver seamless
-            user experiences through intuitive interfaces and powerful features.
+            We build cross-platform mobile apps for hospitals, clinics, and diagnostic labs that empower patients and doctors on the go. These apps allow for test booking, telemedicine, health monitoring, and alerts.
           </p>
-          <h3 className="font-semibold mt-4 mb-2">Sevysis focuses on:</h3>
+          <h3 className="font-semibold mt-4 mb-2">Popular Use Cases:</h3>
           <ul className="list-disc list-inside space-y-1 text-gray-700">
-            <li>Quality requirement gathering</li>
-            <li>Agile development and implementation</li>
-            <li>Bug-free delivery</li>
+            <li>Telehealth consultations</li>
+            <li>Online lab test booking and tracking</li>
+            <li>Digital prescriptions and notifications</li>
           </ul>
         </div>
         <figure className="flex-1">
           <img
             src="https://images.unsplash.com/photo-1572996489084-bd293caab387?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3"
-            alt="Mobile app design"
+            alt="Healthcare mobile app"
             className="rounded shadow-lg w-full max-w-md mx-auto"
           />
         </figure>
@@ -93,19 +78,16 @@ const HealthcarePathlab = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
           <h2 className="text-2xl font-bold mb-4 text-blue-700">
-            Custom Design Development
+            Diagnostic Lab & Pathology Management
           </h2>
           <p className="text-gray-700">
-            Sevysis helps individuals, startups, and companies create custom
-            mobile and web-based apps tailored to specific use cases. Custom
-            development focuses on the client's unique requirements and business
-            goals, ensuring a personalized and effective solution.
+            We offer robust solutions for pathology labs to manage test orders, samples, technician assignments, and report generation. From barcoded sample tracking to digital delivery of reports, our systems streamline lab workflows efficiently.
           </p>
         </div>
         <figure className="flex-1">
           <img
             src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
-            alt="Custom design development"
+            alt="Pathology lab management"
             className="rounded shadow-lg w-full max-w-md mx-auto"
           />
         </figure>
@@ -115,20 +97,16 @@ const HealthcarePathlab = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
           <h2 className="text-2xl font-bold mb-4 text-blue-700">
-            Redesign and Development
+            Health System Modernization & Integration
           </h2>
           <p className="text-gray-700">
-            Redesign and development involve improving and modernizing existing
-            systems or services for better functionality, usability, and
-            aesthetics. It includes research, planning, design, implementation,
-            testing, and deployment. Strong collaboration among cross-functional
-            teams is crucial throughout the process.
+            We help hospitals and diagnostic labs modernize legacy systems and integrate with third-party health APIs (like HL7, FHIR). Our experts enable seamless communication between departments, diagnostics, pharmacies, and billing to create a unified healthcare ecosystem.
           </p>
         </div>
         <figure className="flex-1">
           <img
             src="https://images.unsplash.com/photo-1579684288402-e3e337bcc7af?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3"
-            alt="Redesign and development"
+            alt="Healthcare system integration"
             className="rounded shadow-lg w-full max-w-md mx-auto"
           />
         </figure>
