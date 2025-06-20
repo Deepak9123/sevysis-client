@@ -41,7 +41,7 @@ const EnquiryModal = ({ onClose }) => {
 
     setLoading(true);
     try {
-      await axios.post("https://localhost:7063/api/Enquiry/send", formData);
+      await axios.post("https://sevysis.com/api/enquiry/send", formData);
       setPopup({ type: "success", message: "Email sent successfully!" });
     } catch (err) {
       setPopup({
@@ -55,8 +55,8 @@ const EnquiryModal = ({ onClose }) => {
 
   return (
     <>
-      <div className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50 px-6">
-        <div className="bg-white rounded-lg w-full max-w-md sm:max-w-lg shadow-lg relative z-50 max-h-[90vh] flex flex-col">
+      <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center px-2 sm:px-6">
+        <div className="relative w-full max-w-md sm:max-w-lg bg-white rounded-lg shadow-lg max-h-[90vh] flex flex-col overflow-hidden">
           {/* Sticky header */}
           <div className="flex justify-between items-center p-4 border-b border-gray-200 sticky top-0 bg-white z-10">
             <h2 className="text-xl font-semibold">Enquiry Form</h2>
@@ -71,7 +71,7 @@ const EnquiryModal = ({ onClose }) => {
           {/* Scrollable form */}
           <form
             onSubmit={handleSubmit}
-            className="p-6 space-y-4 overflow-y-auto"
+            className="flex-grow overflow-y-auto p-6 pt-8 space-y-4"
             style={{ flexGrow: 1, minHeight: 0 }}
           >
             {["name", "email", "phone", "subject"].map((field) => (
