@@ -15,6 +15,10 @@ module.exports = {
             transform: "translateY(0)",
           },
         },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
         "fade-in": {
           "0%": {
             opacity: "0",
@@ -33,6 +37,7 @@ module.exports = {
         },
       },
       animation: {
+        fadeIn: "fadeIn 0.7s ease-in-out",
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
         "fade-in": "fade-in 1s ease-in-out forwards",
         marquee: "marquee 8s linear infinite",
