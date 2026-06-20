@@ -109,10 +109,10 @@ export default function Contact() {
                   <div>
                     <h3 className="font-bold text-lg">Email Us</h3>
                     <a
-                      href="mailto:hr@sevysis.com"
+                      href="mailto:info@sevysis.com"
                       className="hover:text-purple-600"
                     >
-                      hr@sevysis.com
+                      info@sevysis.com
                     </a>
                   </div>
                 </div>

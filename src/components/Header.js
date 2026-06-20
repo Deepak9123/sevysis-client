@@ -26,6 +26,15 @@ const Header = ({ onEnquiryClick }) => {
 
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 shadow-md p-4 md:p-4 py-2 md:py-4">
+      <style>{`
+        @keyframes headerTaglineMarquee {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-header-marquee {
+          animation: headerTaglineMarquee 9s linear infinite;
+        }
+      `}</style>
       <div className="flex items-center justify-between">
         <div
           className="flex items-center cursor-pointer group"
@@ -41,7 +50,7 @@ const Header = ({ onEnquiryClick }) => {
 
           {/* Marquee tagline with left margin and smaller top margin on mobile */}
           <div className="overflow-hidden max-w-[150px] md:max-w-[256px] ml-4 mt-0 md:mt-1">
-            <div className="whitespace-nowrap animate-marquee">
+            <div className="whitespace-nowrap inline-block animate-header-marquee">
               <span className="text-xs md:text-sm text-blue-500 font-semibold tracking-wide">
                 🌟 Healthier Tomorrow, Smarter Today 🌟
               </span>

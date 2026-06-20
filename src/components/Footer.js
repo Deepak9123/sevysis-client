@@ -88,8 +88,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-red-400 text-xl" />
-                <a href="mailto:hr@sevysis.com" className="hover:underline">
-                  hr@sevysis.com
+                <a href="mailto:info@sevysis.com" className="hover:underline">
+                  info@sevysis.com
                 </a>
               </li>
               <li className="flex items-start gap-3">

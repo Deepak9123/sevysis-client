@@ -60,11 +60,11 @@ const FindUs = () => {
               <p className="text-blue-700 font-medium">+91 93073 17516</p>
               <p className="text-blue-700 mb-3">+91 78877 11309</p>
               <a
-                href="mailto:hr@sevysis.com"
+                href="mailto:info@sevysis.com"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition"
               >
                 <Mail className="inline mr-1" size={16} />
-                hr@sevysis.com
+                info@sevysis.com
               </a>
             </div>
 
