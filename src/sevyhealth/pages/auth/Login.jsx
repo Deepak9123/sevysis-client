@@ -73,7 +73,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex">
+    <div className="healthcare-login min-h-screen flex">
       {/* Left Panel — Branding */}
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900 flex-col justify-between p-12 relative overflow-hidden">
         {/* Background decoration */}

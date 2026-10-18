@@ -4,12 +4,14 @@ import StatCard from '../../components/ui/StatCard'
 import Card from '../../components/ui/Card'
 import Badge from '../../components/ui/Badge'
 import Button from '../../components/ui/Button'
-import { mockDoctors, mockPatients, mockBeds } from '../../data/mockData'
+import { mockDoctors } from '../../data/mockData'
+import { useHospitalData } from '../../context/HospitalDataContext'
 
 export default function AdminDashboard() {
   const navigate = useNavigate()
-  const totalBeds = mockBeds.reduce((s, b) => s + b.total, 0)
-  const occupiedBeds = mockBeds.reduce((s, b) => s + b.occupied, 0)
+  const { beds, patients } = useHospitalData()
+  const totalBeds = beds.reduce((s, b) => s + b.total, 0)
+  const occupiedBeds = beds.reduce((s, b) => s + b.occupied, 0)
 
   return (
     <div className="space-y-6">
@@ -33,7 +35,7 @@ export default function AdminDashboard() {
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard icon={UserCheck} label="Total Doctors" value={mockDoctors.length} sub={`${mockDoctors.filter(d => d.status === 'available').length} available now`} color="sky" />
-        <StatCard icon={Users} label="Total Patients" value={mockPatients.length} sub={`${mockPatients.filter(p => p.status === 'IPD').length} admitted (IPD)`} color="indigo" />
+        <StatCard icon={Users} label="Total Patients" value={patients.length} sub={`${patients.filter(p => p.status === 'IPD').length} admitted (IPD)`} color="indigo" />
         <StatCard icon={BedDouble} label="Beds Occupied" value={`${occupiedBeds}/${totalBeds}`} sub={`${totalBeds - occupiedBeds} available`} color="rose" />
         <StatCard icon={TrendingUp} label="Today's Revenue" value="₹42,500" sub="+12% from yesterday" color="green" />
       </div>
@@ -42,7 +44,7 @@ export default function AdminDashboard() {
         {/* Bed Occupancy */}
         <Card title="Ward Occupancy">
           <div className="p-5 space-y-4">
-            {mockBeds.map(b => {
+            {beds.map(b => {
               const pct = Math.round((b.occupied / b.total) * 100)
               const barColor = pct >= 90 ? 'bg-red-500' : pct >= 70 ? 'bg-amber-500' : 'bg-green-500'
               return (
@@ -64,7 +66,7 @@ export default function AdminDashboard() {
         {/* Doctors */}
         <Card
           title="Doctors on Duty"
-          action={<Button variant="ghost" size="sm" onClick={() => navigate('/admin/doctors')}><ArrowRight size={14} /></Button>}
+          action={<Button variant="ghost" size="sm" onClick={() => navigate('/sevyhealth/admin/doctors')}><ArrowRight size={14} /></Button>}
         >
           <div className="divide-y divide-slate-50">
             {mockDoctors.slice(0, 4).map(d => (
@@ -85,10 +87,10 @@ export default function AdminDashboard() {
         {/* Recent Patients */}
         <Card
           title="Recent Patients"
-          action={<Button variant="ghost" size="sm" onClick={() => navigate('/admin/patients')}><ArrowRight size={14} /></Button>}
+          action={<Button variant="ghost" size="sm" onClick={() => navigate('/sevyhealth/admin/patients')}><ArrowRight size={14} /></Button>}
         >
           <div className="divide-y divide-slate-50">
-            {mockPatients.map(p => (
+            {patients.map(p => (
               <div key={p.id} className="flex items-center gap-3 px-5 py-3.5">
                 <div className="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 text-xs font-bold shrink-0">
                   {p.name.split(' ').map(x => x[0]).join('').slice(0, 2)}

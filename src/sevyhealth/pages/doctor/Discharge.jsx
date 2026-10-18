@@ -4,27 +4,36 @@ import Card from '../../components/ui/Card'
 import Badge from '../../components/ui/Badge'
 import Button from '../../components/ui/Button'
 import PageHeader from '../../components/common/PageHeader'
-import { mockIPDPatients } from '../../data/mockData'
+import { useHospitalData } from '../../context/HospitalDataContext'
 import { downloadPdf } from '../../utils/exportUtils'
 
 export default function Discharge() {
+  const { ipdPatients, dischargePatient } = useHospitalData()
   const [printStatus, setPrintStatus] = useState(false)
-  const [selectedPatient, setSelectedPatient] = useState(mockIPDPatients[0].id)
+  const [selectedPatientId, setSelectedPatientId] = useState(null)
   const [form, setForm] = useState({ diagnosis: '', summary: '', followUp: '', condition: 'Stable' })
-  const [discharged, setDischarged] = useState(false)
+  const [dischargedPatientName, setDischargedPatientName] = useState('')
+  const [error, setError] = useState('')
 
-  const patient = mockIPDPatients.find(p => p.id === selectedPatient)
+  const patient = ipdPatients.find(p => p.id === selectedPatientId) ?? ipdPatients[0]
 
   function update(field, val) {
     setForm(f => ({ ...f, [field]: val }))
   }
 
   function handleDischarge() {
-    setDischarged(true)
-    setTimeout(() => { setDischarged(false); setForm({ diagnosis: '', summary: '', followUp: '', condition: 'Stable' }) }, 3000)
+    if (!patient) return
+    try {
+      dischargePatient(patient.id)
+      setDischargedPatientName(patient.name)
+      setError('')
+    } catch (dischargeError) {
+      setError(dischargeError.message)
+    }
   }
 
   async function handlePrint() {
+    if (!patient) return
     setPrintStatus(true)
 
     const title = `Discharge Summary - ${patient?.name}`
@@ -56,27 +65,39 @@ export default function Discharge() {
     <div className="space-y-6">
       <PageHeader title="Patient Discharge" subtitle="Process patient discharge and generate summary" />
 
-      {discharged ? (
+      {dischargedPatientName ? (
         <div className="bg-white rounded-xl border border-slate-100 shadow-sm p-12 flex flex-col items-center text-center">
           <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
             <CheckCircle size={32} className="text-green-500" />
           </div>
           <h3 className="text-slate-800 font-bold text-xl">Discharge Approved</h3>
           <p className="text-slate-500 text-sm mt-2">
-            {patient?.name} has been successfully discharged. Summary has been sent to patient.
+            {dischargedPatientName} has been successfully discharged.
           </p>
+          <Button variant="primary" className="mt-6" onClick={() => {
+            setDischargedPatientName('')
+            setSelectedPatientId(null)
+            setForm({ diagnosis: '', summary: '', followUp: '', condition: 'Stable' })
+          }}>
+            Process Another Discharge
+          </Button>
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {error && (
+            <div className="lg:col-span-3 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700" role="alert">
+              {error}
+            </div>
+          )}
           {/* Patient Select */}
           <Card title="Select Patient">
             <div className="divide-y divide-slate-50">
-              {mockIPDPatients.map(p => (
+              {ipdPatients.length ? ipdPatients.map(p => (
                 <button
                   key={p.id}
-                  onClick={() => setSelectedPatient(p.id)}
+                  onClick={() => setSelectedPatientId(p.id)}
                   className={`w-full text-left px-4 py-3.5 transition-colors hover:bg-slate-50 ${
-                    selectedPatient === p.id ? 'bg-sky-50 border-l-2 border-sky-500' : ''
+                    patient?.id === p.id ? 'bg-sky-50 border-l-2 border-sky-500' : ''
                   }`}
                 >
                   <p className="text-slate-800 text-sm font-semibold">{p.name}</p>
@@ -85,12 +106,12 @@ export default function Discharge() {
                     <Badge status={p.condition} />
                   </div>
                 </button>
-              ))}
+              )) : <p className="p-5 text-sm text-slate-500">There are no active inpatients to discharge.</p>}
             </div>
           </Card>
 
           {/* Discharge Form */}
-          <div className="lg:col-span-2 space-y-4">
+          {patient && <div className="lg:col-span-2 space-y-4">
             <Card>
               <div className="flex items-center gap-4 p-5 bg-slate-50/60 rounded-t-xl border-b border-slate-100">
                 <div>
@@ -161,7 +182,7 @@ export default function Discharge() {
                 </div>
               </div>
             </Card>
-          </div>
+          </div>}
         </div>
       )}
     </div>

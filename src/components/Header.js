@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/Logo-design_removed_1.ico";
 
 const Header = ({ onEnquiryClick }) => {
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -25,16 +24,7 @@ const Header = ({ onEnquiryClick }) => {
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 shadow-md p-4 md:p-4 py-2 md:py-4">
-      <style>{`
-        @keyframes headerTaglineMarquee {
-          0% { transform: translateX(100%); }
-          100% { transform: translateX(-100%); }
-        }
-        .animate-header-marquee {
-          animation: headerTaglineMarquee 9s linear infinite;
-        }
-      `}</style>
+    <header className="site-header sticky top-0 z-50 shadow-md p-4 md:p-4 py-2 md:py-4">
       <div className="flex items-center justify-between">
         <div
           className="flex items-center cursor-pointer group"
@@ -42,24 +32,22 @@ const Header = ({ onEnquiryClick }) => {
         >
           {/* Logo and Company Name */}
           <div className="flex items-center space-x-2">
-            <img src={logo} alt="Sevysis Logo" className="h-10 w-10" />
-            <span className="text-xl font-bold text-cyan-100 tracking-wide underline decoration-white/50 underline-offset-4 group-hover:text-white transition-colors duration-200">
+            <img src="/sevysis-mark.svg" alt="Sevysis Logo" className="h-10 w-10" />
+            <span className="text-xl font-bold text-cyan-100 tracking-wide underline decoration-white/50 underline-offset-4 transition-colors duration-200">
               Sevysis
             </span>
           </div>
 
           {/* Marquee tagline with left margin and smaller top margin on mobile */}
-          <div className="overflow-hidden max-w-[150px] md:max-w-[256px] ml-4 mt-0 md:mt-1">
-            <div className="whitespace-nowrap inline-block animate-header-marquee">
-              <span className="text-xs md:text-sm text-blue-500 font-semibold tracking-wide">
-                🌟 Healthier Tomorrow, Smarter Today 🌟
-              </span>
-            </div>
+          <div className="site-tagline hidden sm:block ml-4">
+            <span className="text-xs md:text-sm font-semibold tracking-wide">
+              Healthier Tomorrow, Smarter Today
+            </span>
           </div>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button onClick={toggleMobileMenu} className="md:hidden">
+        <button onClick={toggleMobileMenu} className="site-menu-toggle md:hidden" aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}>
           <svg
             className="w-6 h-6 text-gray-800"
             fill="none"

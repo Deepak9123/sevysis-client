@@ -5,13 +5,15 @@ import StatCard from '../../components/ui/StatCard'
 import Card from '../../components/ui/Card'
 import Badge from '../../components/ui/Badge'
 import Button from '../../components/ui/Button'
-import { mockAppointments, mockPrescriptions, mockPatients } from '../../data/mockData'
+import { mockAppointments } from '../../data/mockData'
+import { useHospitalData } from '../../context/HospitalDataContext'
 
 export default function PatientDashboard() {
   const { user } = useAuth()
+  const { patients } = useHospitalData()
   const navigate = useNavigate()
   const upcoming = mockAppointments.filter(a => a.status !== 'completed')
-  const patientCount = mockPatients.length
+  const patientCount = patients.length
 
   return (
     <div className="space-y-6">
@@ -43,7 +45,7 @@ export default function PatientDashboard() {
         <Card
           className="lg:col-span-2"
           title="Upcoming Appointments"
-          action={<Button variant="ghost" size="sm" onClick={() => navigate('/patient/appointments')}><ArrowRight size={14} /></Button>}
+          action={<Button variant="ghost" size="sm" onClick={() => navigate('/sevyhealth/patient/appointments')}><ArrowRight size={14} /></Button>}
         >
           <div className="divide-y divide-slate-50">
             {upcoming.length === 0 ? (
@@ -71,7 +73,7 @@ export default function PatientDashboard() {
         <div className="space-y-4">
           <Card title="Quick Actions">
             <div className="p-4 space-y-2.5">
-              <button onClick={() => navigate('/patient/appointments')} className="w-full flex items-center gap-3 p-3 rounded-xl bg-sky-50 hover:bg-sky-100 transition-colors text-left">
+              <button onClick={() => navigate('/sevyhealth/patient/appointments')} className="w-full flex items-center gap-3 p-3 rounded-xl bg-sky-50 hover:bg-sky-100 transition-colors text-left">
                 <div className="w-9 h-9 rounded-lg bg-sky-500 flex items-center justify-center">
                   <Calendar size={16} className="text-white" />
                 </div>
@@ -80,7 +82,7 @@ export default function PatientDashboard() {
                   <p className="text-slate-400 text-xs">Schedule a consultation</p>
                 </div>
               </button>
-              <button onClick={() => navigate('/patient/reports')} className="w-full flex items-center gap-3 p-3 rounded-xl bg-indigo-50 hover:bg-indigo-100 transition-colors text-left">
+              <button onClick={() => navigate('/sevyhealth/patient/reports')} className="w-full flex items-center gap-3 p-3 rounded-xl bg-indigo-50 hover:bg-indigo-100 transition-colors text-left">
                 <div className="w-9 h-9 rounded-lg bg-indigo-500 flex items-center justify-center">
                   <BarChart2 size={16} className="text-white" />
                 </div>
@@ -89,7 +91,7 @@ export default function PatientDashboard() {
                   <p className="text-slate-400 text-xs">Lab & radiology results</p>
                 </div>
               </button>
-              <button onClick={() => navigate('/patient/prescriptions')} className="w-full flex items-center gap-3 p-3 rounded-xl bg-green-50 hover:bg-green-100 transition-colors text-left">
+              <button onClick={() => navigate('/sevyhealth/patient/prescriptions')} className="w-full flex items-center gap-3 p-3 rounded-xl bg-green-50 hover:bg-green-100 transition-colors text-left">
                 <div className="w-9 h-9 rounded-lg bg-green-500 flex items-center justify-center">
                   <FileText size={16} className="text-white" />
                 </div>

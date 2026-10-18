@@ -67,7 +67,7 @@ export default function Sidebar({ open, collapsed, onClose, onToggleCollapse }) 
           <X size={18} />
         </button>
       </div>
-      <div className={`hidden lg:flex items-center justify-between ${collapsed ? 'px-3 py-4' : 'gap-3 px-6 py-5'} border-b border-slate-700/60`}>
+      <div className={`hidden lg:flex ${collapsed ? 'flex-col items-center gap-2 px-2 py-3' : 'items-center justify-between gap-3 px-6 py-5'} border-b border-slate-700/60`}>
         <div className={`flex items-center ${collapsed ? 'gap-0' : 'gap-3'}`}>
           <div className="w-9 h-9 rounded-xl overflow-hidden shrink-0">
             <img src="/logo.jpeg" alt="Sevysis" className="w-full h-full object-cover" />
@@ -82,7 +82,9 @@ export default function Sidebar({ open, collapsed, onClose, onToggleCollapse }) 
         <button
           type="button"
           onClick={onToggleCollapse}
-          className="inline-flex items-center justify-center rounded-lg p-2 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+          title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg p-2 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
         >
           {collapsed ? <ArrowRight size={18} /> : <ArrowLeft size={18} />}
         </button>
@@ -95,15 +97,17 @@ export default function Sidebar({ open, collapsed, onClose, onToggleCollapse }) 
             key={to}
             to={to}
             onClick={onClose}
+            title={collapsed ? label : undefined}
+            aria-label={collapsed ? label : undefined}
             className={({ isActive }) =>
-              `flex items-center ${collapsed ? 'justify-center' : 'gap-3 px-3 py-2.5'} rounded-2xl text-sm font-medium transition-all duration-150 ${
+              `flex w-full items-center ${collapsed ? 'h-11 justify-center px-0 py-2.5' : 'gap-3 px-3 py-2.5'} rounded-2xl text-sm font-medium transition-all duration-150 ${
                 isActive
                   ? 'bg-sky-500 text-white shadow-sm'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/80'
               }`
             }
           >
-            <Icon size={18} />
+            <Icon size={18} className="shrink-0" aria-hidden="true" />
             {!collapsed && label}
           </NavLink>
         ))}
@@ -124,9 +128,11 @@ export default function Sidebar({ open, collapsed, onClose, onToggleCollapse }) 
         </div>
         <button
           onClick={handleLogout}
-          className="flex items-center justify-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-slate-800 transition-all duration-150"
+          title={collapsed ? 'Sign Out' : undefined}
+          aria-label={collapsed ? 'Sign Out' : undefined}
+          className={`flex h-11 items-center justify-center ${collapsed ? 'w-full px-0' : 'w-full gap-3 px-3'} py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-slate-800 transition-all duration-150`}
         >
-          <LogOut size={17} />
+          <LogOut size={17} className="shrink-0" aria-hidden="true" />
           {!collapsed && 'Sign Out'}
         </button>
       </div>

@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
+import { HospitalDataProvider } from './context/HospitalDataContext'
 import ProtectedRoute from './routes/ProtectedRoute'
 import DashboardLayout from './components/layout/DashboardLayout'
 
@@ -27,9 +28,10 @@ import Profile from './pages/Profile'
 export default function App() {
   return (
     <AuthProvider>
-      <Routes>
-        <Route index element={<Navigate to="/sevyhealth/login" replace />} />
-        <Route path="login" element={<Login />} />
+      <HospitalDataProvider>
+        <Routes>
+          <Route index element={<Navigate to="/sevyhealth/login" replace />} />
+          <Route path="login" element={<Login />} />
 
         {/* Patient */}
         <Route
@@ -84,7 +86,8 @@ export default function App() {
           <Route path="reports" element={<AdminReports />} />
           <Route path="profile" element={<Profile />} />
         </Route>
-      </Routes>
+        </Routes>
+      </HospitalDataProvider>
     </AuthProvider>
   )
 }

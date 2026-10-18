@@ -5,11 +5,13 @@ import StatCard from '../../components/ui/StatCard'
 import Card from '../../components/ui/Card'
 import Badge from '../../components/ui/Badge'
 import Button from '../../components/ui/Button'
-import { mockOPDQueue, mockIPDPatients } from '../../data/mockData'
+import { mockOPDQueue } from '../../data/mockData'
+import { useHospitalData } from '../../context/HospitalDataContext'
 
 export default function DoctorDashboard() {
   const { user } = useAuth()
   const navigate = useNavigate()
+  const { ipdPatients } = useHospitalData()
 
   return (
     <div className="space-y-6">
@@ -31,7 +33,7 @@ export default function DoctorDashboard() {
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard icon={ClipboardList} label="Today's OPD" value={mockOPDQueue.length} sub="4 in queue" color="sky" />
-        <StatCard icon={BedDouble} label="IPD Patients" value={mockIPDPatients.length} sub="1 critical" color="rose" />
+        <StatCard icon={BedDouble} label="IPD Patients" value={ipdPatients.length} sub={`${ipdPatients.filter(patient => patient.condition === 'Critical').length} critical`} color="rose" />
         <StatCard icon={CheckCircle} label="Consultations Done" value="6" sub="Today so far" color="green" />
         <StatCard icon={Users} label="Pending Reviews" value="2" sub="IPD notes due" color="amber" />
       </div>
@@ -41,7 +43,7 @@ export default function DoctorDashboard() {
         <Card
           className="lg:col-span-2"
           title="Today's OPD Queue"
-          action={<Button variant="ghost" size="sm" onClick={() => navigate('/doctor/opd')}><ArrowRight size={14} /></Button>}
+          action={<Button variant="ghost" size="sm" ariaLabel="Open OPD queue" onClick={() => navigate('/sevyhealth/doctor/opd')}><ArrowRight size={14} /></Button>}
         >
           <div className="divide-y divide-slate-50">
             {mockOPDQueue.map(q => (
@@ -66,10 +68,10 @@ export default function DoctorDashboard() {
         <div className="space-y-4">
           <Card
             title="IPD Patients"
-            action={<Button variant="ghost" size="sm" onClick={() => navigate('/doctor/ipd/monitor')}><ArrowRight size={14} /></Button>}
+            action={<Button variant="ghost" size="sm" ariaLabel="View IPD patients" onClick={() => navigate('/sevyhealth/doctor/ipd/monitor')}><ArrowRight size={14} /></Button>}
           >
             <div className="divide-y divide-slate-50">
-              {mockIPDPatients.map(p => (
+              {ipdPatients.map(p => (
                 <div key={p.id} className="px-5 py-3.5">
                   <div className="flex items-center justify-between mb-1">
                     <p className="text-slate-800 font-semibold text-sm">{p.name}</p>
@@ -83,13 +85,13 @@ export default function DoctorDashboard() {
 
           <Card title="Quick Actions">
             <div className="p-4 space-y-2.5">
-              <Button variant="primary" size="md" className="w-full justify-center" onClick={() => navigate('/doctor/opd')}>
+              <Button variant="primary" size="md" className="w-full justify-center" onClick={() => navigate('/sevyhealth/doctor/opd')}>
                 Start OPD Consultation
               </Button>
-              <Button variant="secondary" size="md" className="w-full justify-center" onClick={() => navigate('/doctor/ipd/admit')}>
+              <Button variant="secondary" size="md" className="w-full justify-center" onClick={() => navigate('/sevyhealth/doctor/ipd/admit')}>
                 Admit New Patient
               </Button>
-              <Button variant="secondary" size="md" className="w-full justify-center" onClick={() => navigate('/doctor/discharge')}>
+              <Button variant="secondary" size="md" className="w-full justify-center" onClick={() => navigate('/sevyhealth/doctor/discharge')}>
                 Process Discharge
               </Button>
             </div>

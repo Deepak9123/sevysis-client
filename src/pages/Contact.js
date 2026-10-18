@@ -132,26 +132,26 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-lg p-8 shadow-lg border border-slate-200">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="bg-white rounded-2xl p-5 sm:p-7 lg:p-8 shadow-xl shadow-slate-900/5 border border-slate-200">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                 {["name", "email", "phone", "subject"].map((field) => (
                   <div key={field}>
                     <label
                       htmlFor={field}
-                      className="block text-sm font-medium text-slate-700 mb-1"
+                      className="block text-sm font-semibold text-slate-700 mb-1.5"
                     >
                       {field.charAt(0).toUpperCase() + field.slice(1)}
                     </label>
                     <input
-                      type={field === "email" ? "email" : "text"}
+                      type={field === "email" ? "email" : field === "phone" ? "tel" : "text"}
                       name={field}
                       id={field}
                       value={formData[field]}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-2 border ${
+                      className={`w-full px-4 py-3 border ${
                         errors[field] ? "border-red-500" : "border-slate-300"
-                      } rounded-md focus:ring-purple-500 focus:border-purple-500 transition`}
+                      } rounded-xl focus:ring-purple-500 focus:border-purple-500 transition`}
                     />
                     {errors[field] && (
                       <p className="text-sm text-red-500 mt-1">
@@ -160,10 +160,10 @@ export default function Contact() {
                     )}
                   </div>
                 ))}
-                <div>
+                <div className="sm:col-span-2">
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-slate-700 mb-1"
+                    className="block text-sm font-semibold text-slate-700 mb-1.5"
                   >
                     Message
                   </label>
@@ -174,14 +174,14 @@ export default function Contact() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-purple-500 focus:border-purple-500 transition"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition"
                   ></textarea>
                 </div>
-                <div>
+                <div className="sm:col-span-2">
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-md font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg"
+                    className="w-full bg-gradient-to-r from-teal-700 to-cyan-700 text-white px-6 py-3.5 rounded-xl font-semibold hover:from-teal-800 hover:to-cyan-800 transition-all duration-300 shadow-lg shadow-teal-900/15"
                   >
                     {loading ? "Sending..." : "Send Message"}
                   </button>

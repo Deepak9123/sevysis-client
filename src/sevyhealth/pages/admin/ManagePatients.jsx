@@ -5,13 +5,13 @@ import Badge from '../../components/ui/Badge'
 import Button from '../../components/ui/Button'
 import ExportDropdown from '../../components/ui/ExportDropdown'
 import PageHeader from '../../components/common/PageHeader'
-import { mockPatients } from '../../data/mockData'
+import { useHospitalData } from '../../context/HospitalDataContext'
 import { downloadCsv, downloadPdf, downloadWordDoc } from '../../utils/exportUtils'
 
 export default function ManagePatients() {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState('All')
-  const [patients, setPatients] = useState(mockPatients)
+  const { patients, addPatient } = useHospitalData()
   const [showModal, setShowModal] = useState(false)
   const [form, setForm] = useState({ name: '', age: '', gender: 'Male', contact: '', doctor: '', ward: '', status: 'OPD' })
 
@@ -196,7 +196,7 @@ export default function ManagePatients() {
                 variant="primary"
                 onClick={() => {
                   if (!form.name || !form.age) return
-                  setPatients(prev => [{ id: `P-${Date.now()}`, ...form }, ...prev])
+                  addPatient(form)
                   setForm({ name: '', age: '', gender: 'Male', contact: '', doctor: '', ward: '', status: 'OPD' })
                   setShowModal(false)
                 }}

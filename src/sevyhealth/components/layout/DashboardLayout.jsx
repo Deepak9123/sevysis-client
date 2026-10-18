@@ -38,7 +38,7 @@ export default function DashboardLayout() {
   }, [sidebarCollapsed])
 
   return (
-    <div className="flex min-h-screen bg-slate-100">
+    <div className="portal-shell flex min-h-screen bg-slate-100">
       <Sidebar
         open={sidebarOpen}
         collapsed={sidebarCollapsed}

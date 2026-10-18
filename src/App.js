@@ -25,9 +25,9 @@ function MainLayout() {
   const handleEnquiryClose = () => setShowModal(false);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="site-shell flex flex-col min-h-screen">
       <Header onEnquiryClick={handleEnquiryOpen} />
-      <main className="flex-1 p-4">
+      <main className="site-main flex-1">
         <Outlet />
       </main>
       <Footer onEnquiryClick={handleEnquiryOpen} />

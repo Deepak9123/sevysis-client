@@ -4,7 +4,7 @@ import Card from '../../components/ui/Card'
 import Badge from '../../components/ui/Badge'
 import Button from '../../components/ui/Button'
 import PageHeader from '../../components/common/PageHeader'
-import { mockBeds, mockIPDPatients } from '../../data/mockData'
+import { useHospitalData } from '../../context/HospitalDataContext'
 
 const WARD_COLORS = {
   General:       { bg: 'bg-sky-500',    light: 'bg-sky-50',    text: 'text-sky-600',    bar: 'bg-sky-500' },
@@ -14,11 +14,11 @@ const WARD_COLORS = {
 }
 
 export default function BedsWards() {
-  const [beds, setBeds] = useState(mockBeds)
+  const { beds, setBeds, ipdPatients } = useHospitalData()
   const [action, setAction] = useState('ward')
   const [newWardName, setNewWardName] = useState('')
   const [wardCount, setWardCount] = useState(4)
-  const [selectedWard, setSelectedWard] = useState(mockBeds[0]?.ward || 'General')
+  const [selectedWard, setSelectedWard] = useState(beds[0]?.ward || 'General')
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -143,7 +143,7 @@ export default function BedsWards() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-50">
-              {mockIPDPatients.map(p => {
+              {ipdPatients.map(p => {
                 const c = WARD_COLORS[p.ward]
                 return (
                   <tr key={p.id} className="hover:bg-slate-50/60 transition-colors">

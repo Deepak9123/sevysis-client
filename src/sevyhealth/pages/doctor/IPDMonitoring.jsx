@@ -4,7 +4,8 @@ import Card from '../../components/ui/Card'
 import Badge from '../../components/ui/Badge'
 import Button from '../../components/ui/Button'
 import PageHeader from '../../components/common/PageHeader'
-import { mockIPDPatients, mockVitals } from '../../data/mockData'
+import { mockVitals } from '../../data/mockData'
+import { useHospitalData } from '../../context/HospitalDataContext'
 
 const VITALS = [
   { label: 'Blood Pressure', key: 'bp', icon: '🩺' },
@@ -21,9 +22,11 @@ const MEDS = [
 ]
 
 export default function IPDMonitoring() {
-  const [activePatient, setActivePatient] = useState(mockIPDPatients[0])
+  const { ipdPatients } = useHospitalData()
+  const [activePatientId, setActivePatientId] = useState(null)
+  const activePatient = ipdPatients.find(patient => patient.id === activePatientId) ?? ipdPatients[0]
   const [notes, setNotes] = useState('')
-  const [vitals, setVitals] = useState(mockVitals)
+  const vitals = mockVitals
   const [updated, setUpdated] = useState(false)
 
   function handleUpdate() {
@@ -39,10 +42,10 @@ export default function IPDMonitoring() {
         {/* Patient List */}
         <Card title="IPD Patients">
           <div className="divide-y divide-slate-50">
-            {mockIPDPatients.map(p => (
+            {ipdPatients.map(p => (
               <button
                 key={p.id}
-                onClick={() => setActivePatient(p)}
+                onClick={() => setActivePatientId(p.id)}
                 className={`w-full text-left px-4 py-3.5 transition-colors hover:bg-slate-50 ${
                   activePatient?.id === p.id ? 'bg-indigo-50 border-l-2 border-indigo-500' : ''
                 }`}
@@ -58,6 +61,13 @@ export default function IPDMonitoring() {
         </Card>
 
         {/* Monitoring Panel */}
+        {ipdPatients.length === 0 ? (
+          <div className="lg:col-span-3">
+            <Card>
+              <p className="p-8 text-center text-sm text-slate-500">There are no active inpatients to monitor.</p>
+            </Card>
+          </div>
+        ) : (
         <div className="lg:col-span-3 space-y-4">
           {/* Patient Info Banner */}
           <Card>
@@ -126,7 +136,8 @@ export default function IPDMonitoring() {
             </Button>
           </div>
         </div>
+        )}
+        </div>
       </div>
-    </div>
   )
 }
