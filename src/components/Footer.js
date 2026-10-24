@@ -76,14 +76,14 @@ export default function Footer() {
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-center gap-3">
                 <FaWhatsapp className="text-green-500 text-xl" />
-                <a href="https://wa.me/917887711309" target="_blank" rel="noreferrer" className="hover:underline">
-                  +91 78877 11309
+                <a href="https://wa.me/919123163568" target="_blank" rel="noreferrer" className="hover:underline">
+                  +91 91231 63568
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <FaPhoneAlt className="text-blue-400 text-xl" />
-                <a href="tel:+919307317516" className="hover:underline">
-                  +91 93073 17516
+                <a href="tel:+919123163568" className="hover:underline">
+                  +91 91231 63568
                 </a>
               </li>
               <li className="flex items-center gap-3">

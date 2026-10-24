@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import sevysisMark from "../assets/sevysis-mark.png";
 
 const Header = ({ onEnquiryClick }) => {
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -24,30 +25,30 @@ const Header = ({ onEnquiryClick }) => {
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
-    <header className="site-header sticky top-0 z-50 shadow-md p-4 md:p-4 py-2 md:py-4">
+    <header className="site-header sticky top-0 z-50 shadow-md">
       <div className="flex items-center justify-between">
         <div
           className="flex items-center cursor-pointer group"
           onClick={() => navigate("/")}
         >
           {/* Logo and Company Name */}
-          <div className="flex items-center space-x-2">
-            <img src="/sevysis-mark.svg" alt="Sevysis Logo" className="h-10 w-10" />
-            <span className="text-xl font-bold text-cyan-100 tracking-wide underline decoration-white/50 underline-offset-4 transition-colors duration-200">
-              Sevysis
-            </span>
-          </div>
-
-          {/* Marquee tagline with left margin and smaller top margin on mobile */}
-          <div className="site-tagline hidden sm:block ml-4">
-            <span className="text-xs md:text-sm font-semibold tracking-wide">
-              Healthier Tomorrow, Smarter Today
-            </span>
+          <div className="flex items-center gap-3">
+            <div className="site-brand-mark h-10 w-10 shrink-0 overflow-hidden rounded-xl">
+              <img src={sevysisMark} alt="Sevysis Logo" className="h-full w-full object-contain" />
+            </div>
+            <div className="flex flex-col">
+              <span className="site-brand-name transition-colors duration-200">
+                Sevysis
+              </span>
+              <span className="site-brand-subtitle">
+                Healthier Tomorrow, Smarter Today
+              </span>
+            </div>
           </div>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button onClick={toggleMobileMenu} className="site-menu-toggle md:hidden" aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}>
+        <button onClick={toggleMobileMenu} className="site-menu-toggle" aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}>
           <svg
             className="w-6 h-6 text-gray-800"
             fill="none"
@@ -68,7 +69,7 @@ const Header = ({ onEnquiryClick }) => {
         </button>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-6 items-center relative">
+        <nav className="site-desktop-nav space-x-6 items-center relative">
           <Link
             to="/"
             onClick={() => setServicesOpen(false)}
@@ -165,7 +166,7 @@ const Header = ({ onEnquiryClick }) => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-4 space-y-2">
+        <div className="site-mobile-menu mt-4 space-y-2">
           <Link
             to="/"
             onClick={toggleMobileMenu}

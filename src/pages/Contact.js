@@ -121,7 +121,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-bold text-lg">Call Us</h3>
                     <a
-                      href="tel:+919307317516"
+                      href="tel:+919123163568"
                       className="hover:text-purple-600"
                     >
                       +91-93073 17516

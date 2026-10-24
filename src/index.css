@@ -78,7 +78,7 @@ button {
 }
 
 .site-header {
-  padding: 0.8rem clamp(1rem, 4vw, 3.5rem);
+  padding: 0.35rem clamp(0.75rem, 2vw, 1.75rem);
   color: var(--brand-ink);
   background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid #e8edf2;
@@ -87,26 +87,38 @@ button {
 }
 
 .site-header > div:first-of-type {
-  max-width: 1440px;
-  min-height: 3.35rem;
-  margin: 0 auto;
+  width: 100%;
 }
 
-.site-header img {
-  border-radius: 0.8rem;
-  border: 1px solid #e8edf2;
-  background: #fff;
+.site-header .site-brand-mark img {
+  display: block;
   object-fit: contain;
-  box-shadow: 0 2px 6px rgba(16, 36, 58, 0.06);
 }
 
-.site-header span.text-xl {
-  color: var(--brand-ink);
-  text-decoration: none;
+.site-header .site-brand-mark {
+  border: 1px solid #dce5eb;
+  background: #fff;
 }
 
-.site-header .group:hover span.text-xl {
-  color: var(--brand-ink);
+.site-brand-name {
+  color: var(--brand-teal);
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.site-header .group:hover .site-brand-name {
+  color: #066f70;
+}
+
+.site-brand-subtitle {
+  margin-top: 0.3rem;
+  color: var(--brand-muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1;
 }
 
 .site-tagline {
@@ -116,7 +128,7 @@ button {
 }
 
 .site-menu-toggle {
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 2.7rem;
@@ -124,6 +136,10 @@ button {
   border: 1px solid #e2e8f0;
   border-radius: 0.85rem;
   background: #fff;
+}
+
+.site-desktop-nav {
+  display: flex;
 }
 
 .site-menu-toggle svg {
@@ -166,8 +182,9 @@ button {
   font-weight: 500;
 }
 
-.site-header > .md\:hidden {
-  max-width: 1440px;
+.site-mobile-menu {
+  display: none;
+  max-width: 100%;
   margin: 0.6rem auto 0;
   padding: 0.5rem;
   border: 1px solid #e8edf2;
@@ -175,16 +192,16 @@ button {
   background: #fff;
 }
 
-.site-header > .md\:hidden > a,
-.site-header > .md\:hidden > button,
-.site-header > .md\:hidden > div > button {
+.site-mobile-menu > a,
+.site-mobile-menu > button,
+.site-mobile-menu > div > button {
   border-radius: 0.7rem;
   color: #33465a;
 }
 
-.site-header > .md\:hidden > a:hover,
-.site-header > .md\:hidden > button:hover,
-.site-header > .md\:hidden > div > button:hover {
+.site-mobile-menu > a:hover,
+.site-mobile-menu > button:hover,
+.site-mobile-menu > div > button:hover {
   color: var(--brand-teal);
   background: #edf8f7;
 }
@@ -350,15 +367,25 @@ button {
   background: #f3f7fa;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
+  .site-menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-desktop-nav {
+    display: none;
+  }
+
+  .site-mobile-menu {
+    display: block;
+  }
+
   .site-header {
-    padding: 0.65rem 1rem;
+    padding: 0.3rem 0.75rem;
   }
+}
 
-  .site-header > div:first-of-type {
-    min-height: 2.85rem;
-  }
-
+@media (max-width: 767px) {
   .site-main section[class*="h-screen"] {
     height: calc(100svh - 64px);
     min-height: 520px;
@@ -373,6 +400,17 @@ button {
   .portal-shell > div > header {
     padding-right: 1rem;
     padding-left: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-brand-mark {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  .site-brand-subtitle {
+    font-size: 0.6rem;
   }
 }
 
