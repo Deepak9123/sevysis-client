@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -18,6 +18,48 @@ import DesignDevelopment from './pages/DesignDevelopment';
 import HrmsSolution from './pages/HrmsSolution';
 import FindUs from './pages/FindUs';
 import ScrollToTop from './utility/ScrollToTop';
+
+const PAGE_TITLES = {
+  '/about': 'About',
+  '/services': 'Services',
+  '/contact': 'Contact',
+  '/dashboard': 'Dashboard',
+  '/services/education-management': 'Education Management',
+  '/services/hospital-pathlab': 'Hospital & Pathlab Solution',
+  '/services/design-development': 'Design & Development',
+  '/services/hrms-solution': 'HRMS Solution',
+  '/find-us': 'Find Us',
+  '/sevyhealth/login': 'Login',
+  '/sevyhealth/patient/dashboard': 'Dashboard',
+  '/sevyhealth/patient/appointments': 'Appointments',
+  '/sevyhealth/patient/prescriptions': 'Prescriptions',
+  '/sevyhealth/patient/reports': 'Lab Reports',
+  '/sevyhealth/patient/billing': 'Billing',
+  '/sevyhealth/patient/profile': 'Profile',
+  '/sevyhealth/doctor/dashboard': 'Dashboard',
+  '/sevyhealth/doctor/opd': 'OPD Consultation',
+  '/sevyhealth/doctor/ipd/monitor': 'IPD Monitoring',
+  '/sevyhealth/doctor/ipd/admit': 'IPD Admission',
+  '/sevyhealth/doctor/discharge': 'Patient Discharge',
+  '/sevyhealth/doctor/profile': 'Profile',
+  '/sevyhealth/admin/dashboard': 'Dashboard',
+  '/sevyhealth/admin/doctors': 'Manage Doctors',
+  '/sevyhealth/admin/patients': 'Manage Patients',
+  '/sevyhealth/admin/beds': 'Beds & Wards',
+  '/sevyhealth/admin/reports': 'Reports & Analytics',
+  '/sevyhealth/admin/profile': 'Profile',
+};
+
+function PageTitle() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const pageTitle = PAGE_TITLES[pathname.replace(/\/+$/, '') || '/'];
+    document.title = pageTitle ? `${pageTitle} | Sevysis` : 'Sevysis';
+  }, [pathname]);
+
+  return null;
+}
 
 function MainLayout() {
   const [showModal, setShowModal] = useState(false);
@@ -39,6 +81,7 @@ function MainLayout() {
 function App() {
   return (
     <>
+      <PageTitle />
       <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
